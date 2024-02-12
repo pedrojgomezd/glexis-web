@@ -8,6 +8,8 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
+import { Suspense } from "react";
+import { FacebookPixelEvents } from "./pixel-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,6 +47,9 @@ export default function RootLayout({
             <Container>{children}</Container>
           </Box>
         </Providers>
+        <Suspense fallback={null}>
+          <FacebookPixelEvents />
+        </Suspense>
       </body>
     </html>
   );
